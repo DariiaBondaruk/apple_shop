@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%block title%}All products{%endblock%}
+{%block content%}
+<table class = "table mt-5 bs-body-$indigo-100 bs-primary-$indigo-700">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for product in products%}
+    <tr>
+        <td>{{product.category}}</td>
+        <td><a href="{%url 'shop:single_product' product.id%}">{{product.title}}</a></td>
+        <td>{{product.price}}</td>
+        <th><button>Buy</button></th>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{%endblock%}
